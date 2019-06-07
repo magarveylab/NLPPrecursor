@@ -2,7 +2,7 @@
 # NLPPrecursor
 
 
-NLPPrecursor is a deep learning framework that analysis protein sequences and predicts their RiPP biosynthetic family along
+NLPPrecursor is a deep learning framework that analyses protein sequences and predicts their RiPP biosynthetic family along
 with a possible cleavage site allowing for the rapid discovery of RiPPs in genomic data. NLPPrecursor fits best with a tool
 such as [PRODIGAL](https://github.com/hyattpd/Prodigal), but any ORF finder should suffice.
 
@@ -10,11 +10,10 @@ NLPPrecursor is freely available for use on the DeepRiPP website: <http://deepri
 demonstrates how to use NLPPrecursor in a programatic manner on your own hardware. Caution, this does require you to be comfortable
 with Python!
 
-To train NLPPrecursor, you'll need to perform two main steps representative of the two modules.
 
-# Installation
+## Installation
 
-This repo mainly needs two requirements: PyTorch and FastAI.
+NLPPrecursor works with python 3.7+ and needs two main requirements: PyTorch and FastAI.
 
 Install pytorch according to your GPU/CPU preference here: <https://pytorch.org>
 
@@ -28,11 +27,18 @@ git checkout fee0e6a0b3af033d41d3468df1c138aecb134926
 pip install .
 ```
 
-Finally, you should be ready to install NLPPrecursor using the following command:
-
+Conda is highly recommended, create a new environment specifically for NLPPrecursor for the easiest build.
+For example, here is one way to set this up:
 ```bash
+conda create --name deepripp
+conda activate deepripp
+conda install pytorch-cpu torchvision-cpu -c pytorch
+pip install git+https://github.com/fastai/fastai.git@fee0e6a0b3af033d41d3468df1c138aecb134926
 pip install git+https://github.com/magarveylab/nlpprecursor
 ```
+
+
+
 
 
 ## Example usage for prediction
@@ -75,6 +81,8 @@ print("Cleavage predictions")
 print(json.dumps(cleavage_predictions, indent=4))
 ```
 
+
+Output: 
 ```json
 Class predictions
 [

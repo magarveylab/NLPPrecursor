@@ -127,7 +127,7 @@ the test data set and results will be output into the data_path directory.
 The cleavage model is simple to train, and usually takes ~8 hours on a 4 core computer, 8gb of RAM and a K80 NVidia GPU.
 
 ```python
-from protai.classification.data import DatasetGenerator
+from nlpprecursor.classification.data import DatasetGenerator
 from pathlib import Path
 import json
 

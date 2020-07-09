@@ -17,29 +17,17 @@ NLPPrecursor works with python 3.7+ and needs two main requirements: PyTorch and
 
 Install pytorch according to your GPU/CPU preference here: <https://pytorch.org>
 
-fastai is a rapidly developed library, unfortunately that means some of the models within DeepRiPP require older installations of fastai.
-In a separate location, clone fastai, switch to a specific commit and install the package:
 
-```bash
-git clone https://github.com/fastai/fastai.git
-cd fastai
-git checkout fee0e6a0b3af033d41d3468df1c138aecb134926
-pip install .
-```
+The project is not currently being developed, thus maintaining the installation process can be tricky given the number of dependencies. Fastai used to use the nightly release of pytorch and torchvision, but these are no longer compatible. A branch that is compatible with this library has been forked, which will need to be installed.
 
 Conda is highly recommended, create a new environment specifically for NLPPrecursor for the easiest build.
 For example, here is one way to set this up:
 ```bash
 conda create --name deepripp
 conda activate deepripp
-conda install pytorch-cpu torchvision-cpu -c pytorch
-pip install git+https://github.com/fastai/fastai.git@fee0e6a0b3af033d41d3468df1c138aecb134926
+pip install git+https://github.com/nishanthmerwin/fastai.git@deepripp_install
 pip install git+https://github.com/magarveylab/nlpprecursor
 ```
-
-
-
-
 
 ## Example usage for prediction
 
@@ -53,6 +41,10 @@ To use them in your analysis, use the following code:
 from nlpprecursor.classification.data import DatasetGenerator as CDG
 from nlpprecursor.annotation.data import DatasetGenerator as ADG
 from pathlib import Path
+import nlpprecursor
+import sys
+# This allows for backwards compatibility of the pickled models.
+sys.modules["protai"] = nlpprecursor
 
 models_dir = Path("../models") # downloaded from releases! 
 
@@ -212,6 +204,7 @@ if __name__ == "__main__":
 	test(data_path, json_path)
 
 ```
+
 
 
 

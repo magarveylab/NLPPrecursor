@@ -23,7 +23,7 @@ The project is not currently being developed, thus maintaining the installation 
 Conda is highly recommended, create a new environment specifically for NLPPrecursor for the easiest build.
 For example, here is one way to set this up:
 ```bash
-conda create --name deepripp
+conda create --name deepripp python=3.7
 conda activate deepripp
 pip install git+https://github.com/nishanthmerwin/fastai.git@deepripp_install
 pip install git+https://github.com/magarveylab/nlpprecursor

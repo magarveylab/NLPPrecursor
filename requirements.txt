@@ -2,6 +2,6 @@ numpy
 torch==1.0.0
 torchvision==0.2.1
 tqdm
-scikit-learn==0.21
+scikit-learn==1.5.0
 pandas==0.24.2
 pandas-ml
